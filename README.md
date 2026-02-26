@@ -1,1 +1,1 @@
-# Dc-Motor-Control
+The Dc motor is a motor that is connected to the a transistor, which is connected to the arduino. This powers the transistor and gives power to the motor. The user can input a number between 50 and 255 and this determines the speed of the motor.
