@@ -1,0 +1,38 @@
+
+const int motorPin = 3;
+
+//Variable for the speed of the motor
+int Speed;
+int flag;
+
+void setup()
+{
+  pinMode(motorPin, OUTPUT); 
+  Serial.begin(9600); 
+    //Print a message:
+// The User can input a number between 50 and 255 to set the speed of the motor.
+  Serial.println("Give a number from 50 to 255.");
+  Serial.println(""); 
+}
+
+void loop()
+{ 
+    if (Serial.available() > 0)
+    {
+      Speed = Serial.parseInt();
+      flag=0;
+    }
+
+  //Sets a range from 50 to 255
+  if (Speed>=50 && Speed<=255){
+    analogWrite(motorPin, Speed);
+      //Print message only once
+      if (flag==0){ 
+        //Print PWM value
+        Serial.print("Motor spinning with ");
+        Serial.print(Speed);
+        Serial.println(" PWM");
+        flag=1;
+      }
+  }
+}
